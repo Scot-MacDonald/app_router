@@ -1,0 +1,31 @@
+:root {
+  --bg: #141414;
+  --text: #fff;
+  --btn: #ccc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 50px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

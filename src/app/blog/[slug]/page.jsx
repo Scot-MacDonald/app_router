@@ -22,7 +22,7 @@ const SinglePostPage = async ({ params }) => {
   const post = await getPost(slug);
   console.log(post);
   return (
-    <div className={styles.container}>
+    <div className="flex pl-6 pr-36 gap-24">
       {post.img && (
         <div className={styles.imgContainer}>
           <Image src={post.img} alt="" fill className={styles.img} />
@@ -43,6 +43,15 @@ const SinglePostPage = async ({ params }) => {
           </div>
         </div>
         <div className={styles.content}>{post?.desc}</div>
+        {post.main && (
+          <div className={styles.main}>
+            {post.main.map((item, index) => (
+              <p key={index} className={styles.mainItem}>
+                {item}
+              </p>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

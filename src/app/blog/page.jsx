@@ -21,9 +21,9 @@ export default async function BlogPage() {
   const posts = await getPosts();
 
   return (
-    <div className={styles.container}>
+    <div className="p-20 grid grid-cols-4 gap-4">
       {posts.map((post) => (
-        <div className={styles.post} key={post.id}>
+        <div className="" key={post.id}>
           <PostCard post={post} />
         </div>
       ))}

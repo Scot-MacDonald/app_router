@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #141414;
+}
+
+.title {
+  font-size: 24px;
+  color: white;
+}
+.titleContainer {
+  align-items: center;
+  margin-bottom: -10px;
+  transition: transform 0.3s ease;
+  color: #5b5b5b;
+  padding-left: 0%;
+}
+.container:hover .titleContainer {
+  transform: translateX(15px); /* Move container to the right on hover */
+  color: white; /* Change text color on hover */
+}
+
+.hexagon {
+  width: 20px; /* Adjust the size of the hexagon */
+  height: auto;
+  margin-right: 10px; /* Adjust the spacing between the hexagon and the title */
+}
+
+.circle {
+  width: 20px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.container:hover {
+  border: 1px solid #ccc;
+  transition: transform 2s ease;
+}
+
+.stickyColumn {
+  flex: 0 0 auto; /* The sticky column won't grow or shrink */
+  position: sticky;
+  top: 0; /* Stick to the top of the container */
+  width: 40%; /* Adjust width as needed */
+}
+
+.scrollableColumn {
+  flex: 1; /* The scrollable column will take remaining space */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 0 20px; /* Adjust padding as needed */
+}

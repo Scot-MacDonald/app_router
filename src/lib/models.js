@@ -85,7 +85,39 @@ const arbeitSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+const dateSchema = new mongoose.Schema(
+  {
+    year: {
+      type: String,
+      required: false,
+    },
+    week: {
+      type: String,
+      required: false,
+    },
+    userId: {
+      type: String,
+      required: false,
+    },
+    slug: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    desc: {
+      type: String,
+
+      unique: true,
+    },
+  },
+  { timestamps: true }
+);
+
 export const User = mongoose.models?.User || mongoose.model("User", userSchema);
 export const Post = mongoose.models?.Post || mongoose.model("Post", postSchema);
 export const Arbeit =
   mongoose.models?.Arbeit || mongoose.model("Arbeit", arbeitSchema);
+export const Date = mongoose.models?.Date || mongoose.model("Date", dateSchema);

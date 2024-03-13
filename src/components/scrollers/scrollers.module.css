@@ -1,0 +1,16 @@
+.columns {
+}
+
+.stickyColumn {
+  flex: 0 0 auto; /* The sticky column won't grow or shrink */
+  position: sticky;
+  top: 0; /* Stick to the top of the container */
+  width: 40%; /* Adjust width as needed */
+  height: 100vh;
+}
+
+.scrollableColumn {
+  flex: 1; /* The scrollable column will take remaining space */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 0 20px; /* Adjust padding as needed */
+}

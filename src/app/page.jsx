@@ -2,14 +2,17 @@ import styles from "./home.module.css";
 import Image from "next/image";
 import { getPosts } from "@/lib/data";
 import { getArbeits } from "@/lib/data";
+import { getDates } from "@/lib/data";
 
 import PostCard from "@/components/postCard/postCard";
 import ArbeitCard from "@/components/arbeitCard/arbeitCard";
 import VideoPlayerWrapper from "@/components/VideoPlayerWrapper/videoPlayerWrapper";
+import DateCard from "@/components/dateCard/dateCard";
 
 export default async function Home() {
   const posts = await getPosts();
   const arbeits = await getArbeits();
+  const dates = await getDates();
   return (
     <>
       <div className={styles.container}>
@@ -165,10 +168,10 @@ export default async function Home() {
               wie sich Internationalist*innen daran beteiligten.
             </h2>
           </div>
-          <div className="flex">
-            {arbeits.map((arbeit) => (
-              <div className="" key={arbeit.id}>
-                <ArbeitCard arbeit={arbeit} />
+          <div className="flex-col">
+            {dates.map((date) => (
+              <div className="" key={date.id}>
+                <DateCard date={date} />
               </div>
             ))}
           </div>

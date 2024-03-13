@@ -1,4 +1,4 @@
-import { Post, User, Arbeit } from "./models";
+import { Post, User, Arbeit, Date } from "./models";
 import { connectToDb } from "./utils";
 import { unstable_noStore as noStore } from "next/cache";
 
@@ -66,5 +66,27 @@ export const getArbeit = async (slug) => {
   } catch (err) {
     console.log(err);
     throw new Error("Failed to fetch Arbeit!");
+  }
+};
+
+export const getDates = async () => {
+  try {
+    connectToDb();
+    const dates = await Date.find();
+    return dates;
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to fetch Dates!");
+  }
+};
+
+export const getDate = async (slug) => {
+  try {
+    connectToDb();
+    const date = await Date.findOne({ slug });
+    return date;
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to fetch Date!");
   }
 };

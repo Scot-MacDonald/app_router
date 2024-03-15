@@ -8,6 +8,7 @@ import PostCard from "@/components/postCard/postCard";
 import ArbeitCard from "@/components/arbeitCard/arbeitCard";
 import VideoPlayerWrapper from "@/components/VideoPlayerWrapper/videoPlayerWrapper";
 import DateCard from "@/components/dateCard/dateCard";
+import Scrollers from "@/components/scrollers/scrollers";
 
 export default async function Home() {
   const posts = await getPosts();
@@ -158,7 +159,7 @@ export default async function Home() {
             </table>
           </div>
         </section>
-        <section className={styles.arbeitContainer}>
+        {/* <section className={styles.arbeitContainer}>
           <div className={styles.details}>
             <h2 className={styles.postTitle}>How we worked.</h2>
             <h2 className={styles.desciption}>
@@ -175,9 +176,20 @@ export default async function Home() {
               </div>
             ))}
           </div>
-        </section>
-        <section className={styles.videoContainer}>
-          <VideoPlayerWrapper />
+        </section> */}
+        <section className={styles.newContainer}>
+          <div className={styles.columns}>
+            <div className={styles.scrollableColumn}>
+              {dates.map((date) => (
+                <div className={styles.week} key={date.id}>
+                  <Scrollers date={date} />
+                  {/* Include the Scrollers component */}
+                </div>
+              ))}
+            </div>
+
+            <div className={styles.stickyColumn}>hello</div>
+          </div>
         </section>
       </div>
     </>

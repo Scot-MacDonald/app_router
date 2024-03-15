@@ -142,6 +142,24 @@
   color: white;
 }
 
+.columns {
+  display: flex;
+}
+
+.stickyColumn {
+  width: 50%;
+  border: 1px solid white;
+}
+
+.scrollableColumn {
+  width: 50%;
+  border-top: 1px solid white;
+  border-left: 1px solid white;
+}
+.week {
+  border-bottom: 1px solid white;
+}
+
 @media (max-width: 1024px) {
   .container {
     flex-direction: column;

@@ -1,22 +1,34 @@
+"use client";
+
 import styles from "./scrollers.module.css";
-import DateCard from "@/components/dateCard/dateCard";
+import Link from "next/link";
+import { useState } from "react";
 
-import { getDates } from "@/lib/data";
+export default function Scrollers({ date }) {
+  const [isHovered, setIsHovered] = useState(false);
 
-export default async function Scrollers() {
-  const dates = await getDates();
+  if (!date || !date.title || !date.year || !date.week || !date.desc) {
+    return null;
+  }
+
   return (
     <>
-      <div className="flex h-full">
-        <div className={styles.scrollableColumn}>
-          {dates.map((date) => (
-            <div className="" key={date.id}>
-              <DateCard date={date} />
-            </div>
-          ))}
+      <Link href={`/date/${date.slug}`}>
+        <div
+          className={styles.container}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
+          <div className={styles.titleContainer}>
+            <h1>{date.year}</h1>
+            <h1 className={styles.title}>{date.title}</h1>
+            <div className={styles.week}>Week {date.week}</div>
+          </div>
         </div>
-        <div className={styles.stickyColumn}></div>
-      </div>
+      </Link>
+      <div
+        className={`${styles.answer} ${isHovered ? styles.showDesc : ""}`}
+      ></div>
     </>
   );
 }

@@ -1,16 +1,25 @@
-.columns {
+.title {
+  font-size: 24px;
+  color: white;
 }
 
-.stickyColumn {
-  flex: 0 0 auto; /* The sticky column won't grow or shrink */
-  position: sticky;
-  top: 0; /* Stick to the top of the container */
-  width: 40%; /* Adjust width as needed */
-  height: 100vh;
+.titleContainer {
+  align-items: center;
+  transition: transform 0.3s ease;
+  color: #5b5b5b;
+  padding: 10px;
 }
 
-.scrollableColumn {
-  flex: 1; /* The scrollable column will take remaining space */
-  overflow-y: auto; /* Enable vertical scrolling */
-  padding: 0 20px; /* Adjust padding as needed */
+.container:hover .titleContainer {
+  transform: translateX(15px); /* Move container to the right on hover */
+  color: white; /* Change text color on hover */
 }
+
+/* .answer {
+  display: none; 
+  margin-top: 10px; 
+}
+
+.answer.showDesc {
+  display: block; 
+} */
